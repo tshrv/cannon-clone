@@ -1,2 +1,2 @@
-# cannon-clone
-A random phrases generator
+# CannonClone
+A random phrases generator.
