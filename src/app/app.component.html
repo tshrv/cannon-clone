@@ -9,7 +9,7 @@
 
 <div class="container mt-2">
   <p class="mat-body">
-    The phrases below were generated randomly. Click the button to generate new ones. Use them for creative
+    The two-word phrases below were generated randomly. Click the button to generate new ones. Use them for creative
     thinking, code names, password phrases, band names, etc. The second batch of phrases use alliteration
     (sort of). The "mnemonics" are taken from the
     <a href="http://web.archive.org/web/20090918202746/http://tothink.com/mnemonic/wordlist.html" target="_blank">
@@ -18,43 +18,64 @@
   </p>
 </div>
 
+<ng-template #generatePhrasesButton>
+  <div class="container mt-4">
+    <div class="d-flex justify-content-center">
+      <button mat-raised-button color="primary" (click)="generatePhrases()">Generate phrases</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="generatePhrasesButton"></ng-container>
+
 <div class="container mt-4">
-  <div class="d-flex justify-content-center">
-    <button mat-raised-button color="primary">Generate phrases</button>
+  <div class="row">
+    <div class="col-sm">
+      <span class="mat-h2 d-block mt-5">Adjective + Noun</span>
+      <span class="mat-body d-block" *ngFor="let word of adjectiveNouns">{{ word }}</span>
+    </div>
+    <div class="col-sm">
+      <span class="mat-h2 d-block mt-5">Noun + Noun</span>
+      <span class="mat-body d-block" *ngFor="let word of nounNouns">{{ word }}</span>
+    </div>
+    <div class="col-sm">
+      <span class="mat-h2 d-block mt-5">Verb + Noun</span>
+      <span class="mat-body d-block" *ngFor="let word of verbNouns">{{ word }}</span>
+    </div>
+    <div class="col-sm">
+      <span class="mat-h2 d-block mt-5">Mnemonics</span>
+      <span class="mat-body d-block" *ngFor="let word of mnemonics">{{ word }}</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <span class="mat-h2 d-block mt-5">Adjective + Noun *</span>
+      <span class="mat-body d-block" *ngFor="let word of adjectiveNounsAlliterations">{{ word }}</span>
+    </div>
+    <div class="col-sm">
+      <span class="mat-h2 d-block mt-5">Noun + Noun *</span>
+      <span class="mat-body d-block" *ngFor="let word of nounNounsAlliterations">{{ word }}</span>
+    </div>
+    <div class="col-sm">
+      <span class="mat-h2 d-block mt-5">Verb + Noun *</span>
+      <span class="mat-body d-block" *ngFor="let word of verbNounsAlliterations">{{ word }}</span>
+    </div>
+    <div class="col-sm">
+      <span class="mat-h2 d-block mt-5">Mnemonics *</span>
+      <span class="mat-body d-block" *ngFor="let word of mnemonicsAlliterations">{{ word }}</span>
+    </div>
   </div>
 </div>
 
-<div class="container mt-4">
-  <div class="d-flex justify-content-around">
-    <div class="d-inline-flex flex-column">
-      <span class="mat-h2">Verb + Noun</span>
-      <span class="mat-body">Hell Cat</span>
-      <span class="mat-body">Hell Cat</span>
-      <span class="mat-body">Hell Cat</span>
-    </div>
-    <div class="d-inline-flex flex-column">
-      <span class="mat-h2">Verb + Noun</span>
-      <span class="mat-body">Hell Cat</span>
-      <span class="mat-body">Hell Cat</span>
-      <span class="mat-body">Hell Cat</span>
-    </div>
-    <div class="d-inline-flex flex-column">
-      <span class="mat-h2">Verb + Noun</span>
-      <span class="mat-body">Hell Cat</span>
-      <span class="mat-body">Hell Cat</span>
-      <span class="mat-body">Hell Cat</span>
-    </div>
-    <div class="d-inline-flex flex-column">
-      <span class="mat-h2">Verb + Noun</span>
-      <span class="mat-body">Hell Cat</span>
-      <span class="mat-body">Hell Cat</span>
-      <span class="mat-body">Hell Cat</span>
-    </div>
-  </div>
+<div class="mb-5">
+  <ng-container *ngTemplateOutlet="generatePhrasesButton"></ng-container>
 </div>
 
-<p>{{adjectives}}</p>
-<p>{{nouns}}</p>
-<p>{{verbs}}</p>
+<div class="container">
+  <span class="mat-caption">
+    inspired from <a href="https://www.michaelfogleman.com/phrases" target="_blank">here</a>.
+  </span>
+</div>
 
 <router-outlet></router-outlet>
