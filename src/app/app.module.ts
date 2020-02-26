@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import '@angular/compiler';
 import {Random} from 'src/_utils/random';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatIconModule,
     MatButtonModule,
     MatChipsModule,
+    MatProgressBarModule,
   ],
   providers: [Random],
   bootstrap: [AppComponent]

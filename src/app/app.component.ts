@@ -12,6 +12,7 @@ import { Random } from 'src/_utils/random';
 export class AppComponent implements OnInit {
   title = 'cannon-clone';
   defaultSetSize = 10;
+  inProgress = false;
 
   adjectiveNouns: string[];
   nounNouns: string[];
@@ -52,6 +53,7 @@ export class AppComponent implements OnInit {
     * adjective-noun, noun-noun, verb-noun, mnemonics
     * 2 of each (regular, alliteration)
     * */
+    this.toggleProgressBar();
 
     this.adjectiveNouns = this.getPhraseSet('adjective', 'noun', false);
     this.nounNouns = this.getPhraseSet('noun', 'noun', false);
@@ -62,6 +64,8 @@ export class AppComponent implements OnInit {
     this.nounNounsAlliterations = this.getPhraseSet('noun', 'noun', true);
     this.verbNounsAlliterations = this.getPhraseSet('verb', 'noun', true);
     this.mnemonicsAlliterations = this.getPhraseSet('mnemonic', 'mnemonic', true);
+
+    this.toggleProgressBar();
   }
 
   private getPhraseSet(type1: string, type2: string, alliteration: boolean): string[] {
@@ -108,5 +112,9 @@ export class AppComponent implements OnInit {
 
   private randomIndex(max: number): number {
     return this.random.randInt(0, max - 1);
+  }
+
+  private toggleProgressBar(): void {
+    this.inProgress = !this.inProgress;
   }
 }
